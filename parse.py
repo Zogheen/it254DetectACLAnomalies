@@ -15,9 +15,9 @@ parse = CiscoConfParse('i2_startup-config.cfg')
 
 acls = parse.find_objects(r"^access-list")
 
-acl = acl.acl(text=acls[0].text)
+acl = acl.acl(text='access-list 100 permit tcp 65.5.5.0 0.0.0.255 65.5.5.0 0.0.0.255 eq www established')
 
-print(acls[0].text)
+print('access-list 100 permit tcp 65.5.5.0 0.0.0.255 65.5.5.0 0.0.0.255 eq www')
 print(acl.tostring())
 
 #allintf = parse.find_objects(r"^interf")
