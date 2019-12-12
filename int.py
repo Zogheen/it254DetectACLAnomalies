@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 class int:
-    def __init__(self):
+    def __init__(self, name, ip):
+        self.name = name
+        self.ip = ip
         self.inn = list()
         self.out = list()
-        print("Initialized new interface")
 
     def addaclin(self, aclnum):
         self.inn.append(aclnum)
@@ -28,3 +29,13 @@ class int:
         for acl in self.out:
             tmp.append(acl)
         return tmp
+
+    def tostring(self):
+        stri = ""
+        stri += str(self.name) + " "
+        stri += "IP: " + str(self.ip) + " "
+        for acl in self.inn:
+            stri += "In: " + str(acl) + " "
+        for acl in self.out:
+            stri += "Out: " + str(acl) + " "
+        return stri
